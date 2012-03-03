@@ -1,0 +1,21 @@
+<section class="bookmark">
+  <hgroup>
+    <h3><%= link_to bookmark.title, bookmark.url %></h3>
+    <h4><%= bookmark.url%></h4>
+  </hgroup>
+  <% if bookmark.description %>
+    <p><%= bookmark.description %></p>
+  <% end %>
+  <% if bookmark.tag_list %>
+  <ul class="tags"><% for tag in bookmark.tags %>
+    <li><%= link_to tag.name, tag_path(tag) %></li>
+  <% end %></ul>
+  <% end %>
+  <section class="meta">
+    <p class="when"><%= time_ago_in_words(bookmark.created_at) %> ago</p>
+    <ul>
+      <li><%= link_to 'Edit', edit_bookmark_path(bookmark) %></li>
+      <li><%= link_to 'Delete', bookmark, :confirm => 'Are you sure?', :method => :delete %></li>
+    </ul>
+  </section>
+</section>

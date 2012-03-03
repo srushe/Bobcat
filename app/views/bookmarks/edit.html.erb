@@ -1,0 +1,13 @@
+<% title "Edit a bookmark" %>
+
+<section id="bookmarks">
+  <%= render 'form' %>
+</section>
+
+<section id="associated">
+  <%= render :partial => 'bookmarks/search_form' %>
+
+  <section id="tags">
+    <%= render :partial => 'tags/cloud', :locals => { :tags => @tags } %>
+  </section>
+</section>

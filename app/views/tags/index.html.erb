@@ -1,0 +1,9 @@
+<% title "Your tags" %>
+
+<section id="full_tags">
+<% if !@tags.to_a.empty? %>
+  <%= render :partial => 'tags/cloud', :locals => { :tags => @tags } %>
+<% else %>
+  <p>You currently have no tags.</p>
+<% end %>
+</section>

@@ -1,0 +1,20 @@
+<% title "Bookmarks tagged with #{@tag.name}" %>
+
+<section id="bookmarks">
+<% if @bookmarks %>
+<% @bookmarks.each do |bookmark| %>
+<%= render :partial => 'bookmarks/single', :locals => { :bookmark => bookmark} %>
+<% end %>
+<%= will_paginate @bookmarks %>
+<% else %>
+<p>You currently have no bookmarks tagged with <%= @tag.name %>.</p>
+<% end %>
+</section>
+
+<section id="associated">
+  <%= render :partial => 'bookmarks/search_form' %>
+
+  <section id="tags">
+    <%= render :partial => 'tags/cloud', :locals => { :tags => @tags } %>
+  </section>
+</section>

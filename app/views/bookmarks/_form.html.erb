@@ -1,0 +1,32 @@
+<% if @bookmark.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@bookmark.errors.count, "error") %> stopped this bookmark from being saved:</h3>
+    <ul>
+    <% @bookmark.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@bookmark) do |f| %>
+  <div class="field">
+    <%= f.label :url, 'Address' %> <span>(required)</span><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :title %> <span>(required)</span><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :tag_list %> <span>(separated by commas)</span><br />
+    <%= f.text_field :tag_list %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
